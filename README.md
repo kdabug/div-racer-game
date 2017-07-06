@@ -51,6 +51,18 @@ for (let i = 0; i < myElements.length; i++) {
 }
 ```
 
+- Sometimes you need access to the event itself -- for example, if you want to know what element is being clicked on or you want to know what key is being pressed. You can do this by passing the event into the callback function, like so:
+
+```javascript
+const myElement = document.querySelector('#my-div');
+
+function plusOne(event) {
+  event.target.innerHTML = parseInt(event.target.innerHTML) + 1;
+}
+
+myElement.addEventListener('click', (event) => plusOne(event));
+```
+
 ## Common pitfalls
 
 - Immediately invoking the event
