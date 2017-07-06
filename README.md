@@ -4,11 +4,52 @@
 
 - Add interactivity to our pages using the `addEventListener` method
 
-## What are event listeners?
 
+## Handling Events
 
-- e.target
-- 
+- There are many events you may want to respond to with JS including clicks, mouseovers, focuses, etc.
+- Events can be listened for and responded to using `addEventListener`.
+
+```javascript
+document
+.getElementById("my-div")
+.addEventListener("click", function() {
+	alert("Click worked!");
+});
+```
+
+You can also write this with arrow functions, like so:
+
+```js
+document
+.getElementById("my-div")
+.addEventListener("click", () => {
+	alert("Click worked!");
+});
+```
+
+- If you need to handle an event that occurs on many elements you will need to attach event listeners to each element individually.
+- This can be done by binding the event to a class. Let's take this example:
+
+#### index.html
+
+```html
+<div class="my-div"></div>
+<div class="my-div"></div>
+<div class="my-div"></div>
+```
+
+#### app.js
+
+```javascript
+const myElements = document.querySelectorAll(".my-div");
+
+for (let i = 0; i < myElements.length; i++) {
+	myElements[i].addEventListener("click", () => {
+		alert("Click worked!");
+	});
+}
+```
 
 ## Common pitfalls
 
