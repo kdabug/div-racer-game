@@ -1,0 +1,47 @@
+body {
+  font-size: 36px;
+  font-family: sans-serif;
+}
+
+main {
+  padding: 100px;
+}
+
+button {
+  display: block;
+  font-size: 24px;
+  height: 100px;
+  margin: 24px auto;
+  width: 100px;
+}
+
+#banner {
+  display: block;
+  margin: 24px;
+}
+
+.container {
+  border: 1px solid black;
+  height: 220px;
+  padding: 36px;
+  position: relative;
+  width: 1000px;
+}
+
+.player {
+  border: 1px solid grey;
+  height: 128px;
+  left: 12px;
+  position: absolute;
+  width: 128px;
+}
+
+.red {
+  background-color: red;
+  top: 12px;
+}
+
+.blue {
+  background-color: blue;
+  top: 152px;
+}

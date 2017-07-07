@@ -80,3 +80,5 @@ myElement.addEventListener('click', function(e) {
   plusNumber(3, e);
 })
 ```
+
+- Creating an event listener on an element that hasn't been created yet (check what order your src files are in etc)
