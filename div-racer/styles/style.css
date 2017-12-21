@@ -20,6 +20,12 @@ button {
   margin: 24px;
 }
 
+#score {
+  display: block;
+  margin: 24px;
+  font-size: 22px;
+}
+
 .container {
   border: 1px solid black;
   height: 220px;

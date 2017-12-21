@@ -3,6 +3,7 @@ console.log('main.js is connected');
 // GRAB ELEMENTS
 var container = document.querySelector('.container');
 var banner = document.getElementById('banner');
+var score = document.getElementById('score');
 // GRAB START BUTTON
 var startBTN = document.getElementById('start');
 // GRAB PLAYERS
@@ -16,7 +17,9 @@ var speed = 30;
 // AS SPEED INCREMENTS PER KEYUP, THESE VARIABLES INCREMENT
 // ALLOWING EACH DIV TO MOVE
 var moveRedRight = 0;
+var redScore = 0;
 var moveBlueRight = 0;
+var blueScore = 0;
 
 // ADD EVENT LISTENER TO START BUTTON
 startBTN.addEventListener('click', function (e) {
@@ -41,7 +44,6 @@ function movePlayer(player) {
 
 function checkForWin(player) {
   var rightBorder = container.getBoundingClientRect().right;
-
   return player.getBoundingClientRect().right >= rightBorder;
 }
 
@@ -71,13 +73,17 @@ function whosWinning(player1, player2) {
   if (redPlayerPos > bluePlayerPos) {
     banner.style.color = 'red';
     banner.innerHTML = `${player1.id} is winning!`;
-    checkForWin(player1) && printWinner(player1);
+    if (checkForWin(player1)) { redScore++; printWinner(player1); score.innerHTML = renderScore(); }
   } else if (bluePlayerPos > redPlayerPos) {
     banner.style.color = 'blue';
     banner.innerHTML = `${player2.id} is winning!`;
-    checkForWin(player2) && printWinner(player2);
+    if (checkForWin(player2)) { blueScore++; printWinner(player2); score.innerHTML = renderScore(); }
   } else {
     banner.style.color = 'black';
     banner.innerHTML = `It's a close one!`;
   }
+}
+
+function renderScore() {
+  return `${player1.id}: ${redScore}, ${player2.id}: ${blueScore}`;
 }
