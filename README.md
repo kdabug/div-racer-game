@@ -83,6 +83,11 @@ myElement.addEventListener('click', function(e) {
 
 - Creating an event listener on an element that hasn't been created yet (check what order your src files are in etc)
 
+## Deliverables
+- Do all your work in `main.js` located in the `src` folder.
+- We expect this homework to take time. If you do not complete this assignment, that is FINE. We want to know where you got stuck and what blocked you. 
+- Turn in your work by 11pm this evening.
+
 ## Bonus
 - Add your own theme in the CSS file for this game.
 - Make the game resonsive for media queries!  
