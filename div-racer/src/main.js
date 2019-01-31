@@ -11,7 +11,7 @@ When the start button is clicked
 - Set the banner to say "Go go go!!!"
 - Add an event listener to the page that listens for all keyup events
 When a key is pressed
-- Check to see if it's a Z (90) or a right arrow (39)
+- Check to see if it's a Z (90) or a right arrow (39) (one way to do this is use e.keyCode)
 - Add 30 to the corresponding div's position
 - Check for a win condition
 - If the win condition is met
