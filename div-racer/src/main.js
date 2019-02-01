@@ -1,56 +1,77 @@
 console.log("main.js is connected");
+
 let countOne = 1;
 let countTwo = 1;
-
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const playerOne = document.querySelector("#player1");
+const playerTwo = document.querySelector("#player2");
+const body = document.querySelector("body");
+playerOne.init = 128;
+playerTwo.init = 128;
+playerOne.count = 0;
+playerTwo.count = 0;
 // const endGame = () => {
 //   alert("Congratulations");
 //   document.location.reload();
 // };
+const updateScore = player => {
+  let scoreText = document.querySelector("#score");
+  if (player === "playerOne") {
+    playerOneScore++;
+  }
+  if (player === "playerTwo") {
+    playerTwoScore++;
+  }
+  scoreText.innerText = `Player One score: ${playerOneScore}. \n Player Two score: ${playerTwoScore}.`;
+};
 
 const checkWin = (oneP, twoP) => {
-  let body = document.querySelector("body");
-  //let winningSize = document.querySelector(".container").style.length;
-  if (oneP > twoP && oneP > 30) {
+  if (
+    oneP > twoP &&
+    oneP > 30 //parseInt(playerOne.style.width) > parseInt(container.style.width)
+  ) {
     body.removeEventListener("keyup", keyPress);
     banner.innerText = "Player One Wins";
+    updateScore("playerOne");
     //endGame();
   }
-  if (twoP > oneP && twoP > 30) {
+  if (
+    twoP > oneP &&
+    twoP > 30
+    //parseInt(playerTwo.style.width) > parseInt(container.style.width)
+  ) {
     body.removeEventListener("keyup", keyPress);
     banner.innerText = "Player Two Wins";
+    updateScore("playerTwo");
     //endGame();
   }
+};
+
+const movePlayer = player => {
+  player.style.width = player.init + 30 * player.count + "px";
+  player.count++;
 };
 
 const keyPress = ev => {
-  let playerOne = document.querySelector("#player1");
-  let playerTwo = document.querySelector("#player2");
   if (ev.keyCode === 90) {
-    playerOne.style.width = 128 + 30 * countOne + "px";
-    console.log("player one has moved");
-    countOne++;
+    movePlayer(playerOne);
   }
   if (ev.keyCode === 39) {
-    playerTwo.style.width = 128 + 30 * countTwo + "px";
-    console.log("player two has moved");
-    countTwo++;
+    movePlayer(playerTwo);
   }
-  console.log(document.querySelector("#player2").style.width);
-  checkWin(countOne, countTwo);
+  checkWin(playerOne.count, playerTwo.count);
 };
 
 const clickStart = () => {
-  const body = document.querySelector("body");
   const divs = document.querySelectorAll("div");
   divs.forEach(el => {
     el.style.width = "initial";
-    countOne = 0;
-    countTwo = 0;
+    playerOne.count = 0;
+    playerTwo.count = 0;
   });
-
   const banner = body.querySelector("#banner");
   banner.innerText = "Go Go Go!";
-
   body.addEventListener("keyup", keyPress);
 };
 

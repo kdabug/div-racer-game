@@ -51,6 +51,10 @@ button {
   width: 128px;
 }
 
+.player img {
+  float: right;
+}
+
 .red {
   background-color: #c8665b;
   top: 12px;
