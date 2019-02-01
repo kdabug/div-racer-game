@@ -1,4 +1,34 @@
-console.log('main.js is connected');
+console.log("main.js is connected");
+
+const keyPress = ev => {
+  if (ev.keyCode === 90) {
+    playerOne = document.querySelector("#player1");
+    playerOne.style.position += 30;
+    console.log("player one has moved");
+  }
+  if (ev.keyCode === 39) {
+    playerTwo = document.querySelector("#player2");
+    playerTwo.style.position += 30;
+  }
+  //checkWin();
+};
+// const checkWin = () => {
+//     if ()
+// }
+
+const clickStart = () => {
+  const body = document.querySelector("body");
+  const divs = document.querySelectorAll("div");
+  divs.forEach(el => (el.style.position = "initial"));
+
+  const banner = body.querySelector("#banner");
+  banner.innerText = "Go Go Go!";
+
+  window.addEventListener("keyup", keyPress);
+};
+
+const startButton = document.querySelector("#start");
+startButton.addEventListener("click", clickStart);
 
 /*
 DIV RACER!!!
