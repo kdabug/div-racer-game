@@ -1,6 +1,7 @@
 body {
   font-size: 36px;
   font-family: sans-serif;
+  background-color: #fee5e2;
 }
 
 main {
@@ -11,13 +12,21 @@ button {
   display: block;
   font-size: 24px;
   height: 100px;
-  margin: 24px auto;
+  margin: 24px;
   width: 100px;
+  background-color: #fa8072;
+  border-radius: 18px;
+}
+.opener {
+  display: flex;
+}
+#banner {
+  display: inline;
+  margin: 24px;
 }
 
-#banner {
-  display: block;
-  margin: 24px;
+#fish {
+  height: 120px;
 }
 
 #score {
@@ -27,7 +36,7 @@ button {
 }
 
 .container {
-  border: 1px solid black;
+  border: 1px solid #4b2622;
   height: 220px;
   padding: 36px;
   position: relative;
@@ -43,11 +52,11 @@ button {
 }
 
 .red {
-  background-color: red;
+  background-color: #c8665b;
   top: 12px;
 }
 
 .blue {
-  background-color: blue;
+  background-color: #fba69c;
   top: 152px;
 }

@@ -2,16 +2,23 @@ console.log("main.js is connected");
 let countOne = 1;
 let countTwo = 1;
 
+// const endGame = () => {
+//   alert("Congratulations");
+//   document.location.reload();
+// };
+
 const checkWin = (oneP, twoP) => {
   let body = document.querySelector("body");
   //let winningSize = document.querySelector(".container").style.length;
   if (oneP > twoP && oneP > 30) {
     body.removeEventListener("keyup", keyPress);
     banner.innerText = "Player One Wins";
+    //endGame();
   }
   if (twoP > oneP && twoP > 30) {
     body.removeEventListener("keyup", keyPress);
     banner.innerText = "Player Two Wins";
+    //endGame();
   }
 };
 
@@ -35,7 +42,11 @@ const keyPress = ev => {
 const clickStart = () => {
   const body = document.querySelector("body");
   const divs = document.querySelectorAll("div");
-  divs.forEach(el => (el.style.position = "initial"));
+  divs.forEach(el => {
+    el.style.width = "initial";
+    countOne = 0;
+    countTwo = 0;
+  });
 
   const banner = body.querySelector("#banner");
   banner.innerText = "Go Go Go!";
