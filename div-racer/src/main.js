@@ -2,26 +2,35 @@ console.log("main.js is connected");
 let countOne = 1;
 let countTwo = 1;
 
+const checkWin = (oneP, twoP) => {
+  let body = document.querySelector("body");
+  //let winningSize = document.querySelector(".container").style.length;
+  if (oneP > twoP && oneP > 30) {
+    body.removeEventListener("keyup", keyPress);
+    banner.innerText = "Player One Wins";
+  }
+  if (twoP > oneP && twoP > 30) {
+    body.removeEventListener("keyup", keyPress);
+    banner.innerText = "Player Two Wins";
+  }
+};
 
-/ const checkWin = () => {
- if (document.querySelectorAll('#player1, #player2'))
- }
 const keyPress = ev => {
+  let playerOne = document.querySelector("#player1");
+  let playerTwo = document.querySelector("#player2");
   if (ev.keyCode === 90) {
-    let playerOne = document.querySelector("#player1");
     playerOne.style.width = 128 + 30 * countOne + "px";
     console.log("player one has moved");
     countOne++;
   }
   if (ev.keyCode === 39) {
-    let playerTwo = document.querySelector("#player2");
     playerTwo.style.width = 128 + 30 * countTwo + "px";
     console.log("player two has moved");
     countTwo++;
   }
-  //checkWin();
+  console.log(document.querySelector("#player2").style.width);
+  checkWin(countOne, countTwo);
 };
-
 
 const clickStart = () => {
   const body = document.querySelector("body");
@@ -34,8 +43,12 @@ const clickStart = () => {
   body.addEventListener("keyup", keyPress);
 };
 
-const startButton = document.querySelector("#start");
-startButton.addEventListener("click", clickStart);
+const startButton = () => {
+  const startBut = document.querySelector("#start");
+  startBut.addEventListener("click", clickStart);
+};
+
+startButton();
 
 /*
 DIV RACER!!!
