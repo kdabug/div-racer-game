@@ -1,20 +1,27 @@
 console.log("main.js is connected");
+let countOne = 1;
+let countTwo = 1;
 
+
+/ const checkWin = () => {
+ if (document.querySelectorAll('#player1, #player2'))
+ }
 const keyPress = ev => {
   if (ev.keyCode === 90) {
-    playerOne = document.querySelector("#player1");
-    playerOne.style.position += 30;
+    let playerOne = document.querySelector("#player1");
+    playerOne.style.width = 128 + 30 * countOne + "px";
     console.log("player one has moved");
+    countOne++;
   }
   if (ev.keyCode === 39) {
-    playerTwo = document.querySelector("#player2");
-    playerTwo.style.position += 30;
+    let playerTwo = document.querySelector("#player2");
+    playerTwo.style.width = 128 + 30 * countTwo + "px";
+    console.log("player two has moved");
+    countTwo++;
   }
   //checkWin();
 };
-// const checkWin = () => {
-//     if ()
-// }
+
 
 const clickStart = () => {
   const body = document.querySelector("body");
@@ -24,7 +31,7 @@ const clickStart = () => {
   const banner = body.querySelector("#banner");
   banner.innerText = "Go Go Go!";
 
-  window.addEventListener("keyup", keyPress);
+  body.addEventListener("keyup", keyPress);
 };
 
 const startButton = document.querySelector("#start");
